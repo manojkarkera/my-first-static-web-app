@@ -1,0 +1,9 @@
+customer-create.component.html
+<h2>Create Customer</h2>
+<form (submit)="createCustomer()">
+  <label for="firstName">First Name:</label>
+  <input type="text" id="firstName" [(ngModel)]="newCustomer.firstName" required>
+  <label for="lastName">Last Name:</label>
+  <input type="text" id="lastName" [(ngModel)]="newCustomer.lastName" required>
+  <button type="submit">Create</button>
+</form>

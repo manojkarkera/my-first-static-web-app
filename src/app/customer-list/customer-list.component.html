@@ -1,0 +1,20 @@
+<!-- customer-list.component.html -->
+<h2>Customer List</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let customer of customers">
+    <td>{{ customer.id }}</td>
+    <td>{{ customer.firstName }}</td>
+    <td>{{ customer.lastName }}</td>
+    <td>
+      <button (click)="editCustomer(customer.id!)">Edit</button>
+      <button (click)="deleteCustomer(customer.id!)">Delete</button>
+    </td>
+  </tr>
+</table>
+<button routerLink="/create">Create Customer</button>

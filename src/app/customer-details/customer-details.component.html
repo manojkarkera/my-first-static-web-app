@@ -1,0 +1,8 @@
+customer-details.component.html
+<h2>Customer Details</h2>
+<div *ngIf="customer"> 
+  <p><strong>ID:</strong> {{ customer.id }}</p>
+  <p><strong>First Name:</strong> {{ customer.firstName }}</p>
+  <p><strong>Last Name:</strong> {{ customer.lastName }}</p>
+</div>
+<a href="/edit/{{ customer?.id }}">Edit Customer</a>
