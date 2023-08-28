@@ -12,6 +12,7 @@ export class CustomerService {
   dummyCustomers: Customer[] = [
     { id: '1', firstName: 'John', lastName: 'Doe' },
     { id: '2', firstName: 'Jane', lastName: 'Smith' },
+    { id: '3', firstName: 'Manoj', lastName: 'Karkera' }
     // Add more dummy customer data
   ];
   
