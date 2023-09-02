@@ -9,7 +9,7 @@ import { Customer } from 'src/interface/customer';
 })
 export class CustomerService {
   private apiBaseUrl = environment.apiUrl;
-  private subscription_key = '5048a9d86a894b71ba658feab9e58595';
+  private subscription_key = '5048a9d86a894b71ba658feab9e58595';  
   private customer_function_name= "customers-function";
 
   dummyCustomers: Customer[] = [
@@ -45,7 +45,7 @@ export class CustomerService {
 
     // Define the options with the headers
     const options = { headers: headers };    
-    const url = `${this.apiBaseUrl}/${this.customer_function_name}/createCustomer`;
+    const url = `${this.apiBaseUrl}/${this.customer_function_name}/createCustomer?subscription-key=` + this.subscription_key;
     console.log(customer);
     console.log(url);
     return this.http.post<Customer>(url, customer, options);
