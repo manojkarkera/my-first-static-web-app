@@ -20,35 +20,22 @@ export class CustomerService {
   ];
 
 
-  getCustomers(): Observable<Customer[]> {
+  getCustomers1(): Observable<Customer[]> {
     // Use 'of' to return the dummyCustomers data as an observable
     return of(this.dummyCustomers);
   }
 
 
-  getAllCustomers(): Observable<Customer[]> {
-    const url = `${this.apiBaseUrl}/${this.customer_function_name}/GetAllCustomers`;
-    const params = {
-      'subscription-key': this.subscription_key,
-    };
-
-    return this.http.get<Customer[]>(url, { params });
+  getCustomers(): Observable<Customer[]> {
+    const url = `${this.apiBaseUrl}/${this.customer_function_name}/GetAllCustomers?subscription-key=` + this.subscription_key;
+    return this.http.get<Customer[]>(url);
   }
 
   constructor(private http: HttpClient) { }
 
-  createCustomer(customer: Customer): Observable<Customer> {
-    // Define the headers with the subscription key
-    const headers = new HttpHeaders({
-      'subscription-key': this.subscription_key
-    });
-
-    // Define the options with the headers
-    const options = { headers: headers };    
+  createCustomer(customer: Customer): Observable<Customer> { 
     const url = `${this.apiBaseUrl}/${this.customer_function_name}/createCustomer?subscription-key=` + this.subscription_key;
-    console.log(customer);
-    console.log(url);
-    return this.http.post<Customer>(url, customer, options);
+    return this.http.post<Customer>(url, customer);
   }
 
   getCustomer(id: string, customerId: string): Observable<Customer> {
