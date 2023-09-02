@@ -21,7 +21,21 @@ export class CustomerCreateComponent implements OnInit {
   ngOnInit(): void {}
 
   createCustomer(): void {
-    this.customerService.createCustomer(this.newCustomer);
-    this.router.navigateByUrl('/');
+    this.customerService.createCustomer(this.newCustomer).subscribe;
+
+    this.customerService.createCustomer(this.newCustomer).subscribe(
+      (response) => {
+        
+        console.log(response);
+        this.router.navigateByUrl('/');
+        // Handle response data
+      },
+      (error) => {
+        console.error('Error:', error);
+        // Handle error
+      }
+    );
+
+   
   }
 }

@@ -8,6 +8,7 @@ import { CustomerCreateComponent } from './customer-create/customer-create.compo
 import { CustomerEditComponent } from './customer-edit/customer-edit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     CustomerEditComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     FormsModule 

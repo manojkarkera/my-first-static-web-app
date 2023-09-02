@@ -12,9 +12,10 @@
     <td>{{ customer.firstName }}</td>
     <td>{{ customer.lastName }}</td>
     <td>
-      <button (click)="editCustomer(customer.id!)">Edit</button>
-      <button (click)="deleteCustomer(customer.id!)">Delete</button>
+      <a [routerLink]="['/edit', customer.id, customer.customerId]" class="btn">Edit</a> |
+      <a [routerLink]="['/edit', customer.id, customer.customerId]" class="btn">Delete</a>
+
     </td>
   </tr>
 </table>
-<button routerLink="/create">Create Customer</button>
+<a routerLink="/create">Create Customer</a>

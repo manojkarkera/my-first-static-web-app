@@ -1,5 +1,6 @@
 // customer-list.component.ts
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Customer } from 'src/interface/customer';
 import { CustomerService } from 'src/service/customer.service';
 
@@ -12,7 +13,7 @@ import { CustomerService } from 'src/service/customer.service';
 export class CustomerListComponent implements OnInit {
   customers: Customer[] = [];
   // customer: Customer;
-  constructor(private customerService: CustomerService) { }
+  constructor(private customerService: CustomerService,private router: Router) { }
 
   ngOnInit(): void {
     const id = 'ef38ba07-57f4-48a6-b8ba-7725e3f263d6';
@@ -58,9 +59,11 @@ export class CustomerListComponent implements OnInit {
 
   editCustomer(id: string): void {
     // Implement edit navigation
+    this.router.navigate(['AddEmployee']);
   }
 
   deleteCustomer(id: string): void {
     // Implement delete logic
+    this.router.navigate(['AddEmployee']);
   }
 }

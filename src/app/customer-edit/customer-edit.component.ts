@@ -12,16 +12,35 @@ import { CustomerService } from 'src/service/customer.service';
 })
 export class CustomerEditComponent implements OnInit {
   customer: Customer | undefined;
-
+  id: string;
+  customerId: string;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private customerService: CustomerService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-   // this.customer = this.customerService.getCustomerById(id);
+    // Get the route parameters
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.customerId = this.route.snapshot.paramMap.get('customerId');
+    // this.customer = this.customerService.getCustomerById(id);
+    this.fetchCustomer(this.id, this.customerId)
+  }
+
+  fetchCustomer(id: string, customerId: string) {
+
+    this.customerService.getCustomer(id, customerId).subscribe(
+      (response) => {
+        console.log('Customer Data:');
+        console.log(response);
+        // Handle response data
+      },
+      (error) => {
+        console.error('Error:', error);
+        // Handle error
+      }
+    );
   }
 
   updateCustomer(): void {
